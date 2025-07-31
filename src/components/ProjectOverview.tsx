@@ -20,7 +20,7 @@ const ProjectOverview = () => {
             Project Overview
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Marquis Galleria <span className="text-primary">Summary</span>
+            Marquis One <span className="text-primary">Summary</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             By <strong>Marquis Development</strong> | <strong>Arjan, Dubai</strong>
@@ -43,7 +43,7 @@ const ProjectOverview = () => {
           <h3 className="text-2xl font-bold mb-6">About the Project</h3>
           <div className="prose prose-lg max-w-none">
             <p className="text-muted-foreground leading-relaxed mb-6">
-              <strong>Marquis Galleria at Arjan</strong> is a revolutionary icon of modern living, a residential creation by esteemed 
+              <strong>Marquis One at Arjan</strong> is a revolutionary icon of modern living, a residential creation by esteemed 
               <strong> Marquis Development</strong> with premium designed 1, 2, and 3-bedroom apartments in Dubai. This is a testament 
               to architectural brilliance and contemporary luxury, this 09-storey masterpiece redefines urban elegance.
             </p>
