@@ -5,7 +5,7 @@ import { Building, Home, Ruler, CreditCard, Calendar, MapPin } from "lucide-reac
 const ProjectOverview = () => {
   const projectDetails = [
     { icon: Building, label: "Property Type", value: "Apartment" },
-    { icon: Home, label: "Unit Types", value: "1, 2 & 3 BR" },
+    { icon: Home, label: "Unit Types", value: "Studio,1 & 2 BR" },
     { icon: Ruler, label: "Size Range", value: "789 to 2,099 SQ. FT." },
     { icon: CreditCard, label: "Down Payment", value: "20%" },
     { icon: Calendar, label: "Payment Plan", value: "30/70" },
