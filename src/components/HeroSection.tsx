@@ -24,8 +24,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-4 text-primary-foreground/90">
-            A revolutionary icon of modern living in Arjan, Dubai
-          </p>
+        </p>
           
           <div className="flex flex-wrap justify-center items-center gap-6 mb-8 text-primary-foreground/80">
             <div className="flex items-center">
@@ -44,9 +43,7 @@ const HeroSection = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-6">
-              Download Brochure
-            </Button>
+            
             <Button variant="premium" size="lg" className="text-lg px-8 py-6">
               Schedule Viewing
             </Button>
