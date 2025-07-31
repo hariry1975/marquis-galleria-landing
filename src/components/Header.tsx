@@ -21,7 +21,7 @@ const Header = () => {
         <div className="flex items-center space-x-3">
           <Button variant="outline" size="sm" className="hidden sm:flex">
             <Phone className="w-4 h-4" />
-            +971 55 162 3236
+            +971561700817
           </Button>
           <Button variant="luxury" size="sm">
             <MessageCircle className="w-4 h-4" />
