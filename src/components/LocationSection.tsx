@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, Car } from "lucide-react";
+import Map from "./Map";
 
 const LocationSection = () => {
   const nearbyLandmarks = [
@@ -27,6 +28,11 @@ const LocationSection = () => {
           </p>
         </div>
 
+        {/* Interactive Map */}
+        <div className="mb-16">
+          <Map />
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-3xl font-bold mb-6">
@@ -34,7 +40,7 @@ const LocationSection = () => {
               Arjan, Dubai
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Strategically located in Arjan, Marquis Galleria provides unmatched connectivity to the city's 
+              Strategically located in Arjan, Marquis One provides unmatched connectivity to the city's 
               landmarks while maintaining an oasis-like ambiance within Dubai. The location offers easy access 
               to Sheikh Mohammed Bin Zayed Road and nearby attractions.
             </p>
