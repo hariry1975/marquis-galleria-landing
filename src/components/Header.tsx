@@ -1,15 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
-
 const Header = () => {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
+  return <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <div className="text-2xl font-bold bg-gradient-luxury bg-clip-text text-transparent">
             MARQUIS
           </div>
-          <div className="text-2xl font-light text-foreground">Galleria</div>
+          <div className="text-2xl font-light text-foreground">One</div>
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">
@@ -31,8 +29,6 @@ const Header = () => {
           </Button>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;

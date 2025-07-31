@@ -1,8 +1,6 @@
 import { Separator } from "@/components/ui/separator";
-
 const Footer = () => {
-  return (
-    <footer className="bg-luxury-gray text-luxury-pearl py-12">
+  return <footer className="bg-luxury-gray text-luxury-pearl py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -10,7 +8,7 @@ const Footer = () => {
               <div className="text-2xl font-bold bg-gradient-luxury bg-clip-text text-transparent">
                 MARQUIS
               </div>
-              <div className="text-2xl font-light">Galleria</div>
+              <div className="text-2xl font-light">One</div>
             </div>
             <p className="text-luxury-pearl/70">
               A revolutionary icon of modern living in Arjan, Dubai.
@@ -32,15 +30,15 @@ const Footer = () => {
             <ul className="space-y-2 text-luxury-pearl/70">
               <li>Developer: Marquis Development</li>
               <li>Location: Arjan, Dubai</li>
-              <li>Status: Ready to Move In</li>
-              <li>Units: 115 Premium Apartments</li>
+              <li>Status: Off Plan</li>
+              <li>Units: 500 Premium Apartments</li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-luxury-pearl/70">
-              <li>+971 55 162 3236</li>
+              <li>+971 561700817</li>
               <li>WhatsApp Available</li>
               <li>Arjan, Dubai, UAE</li>
             </ul>
@@ -50,11 +48,9 @@ const Footer = () => {
         <Separator className="bg-luxury-pearl/20 mb-8" />
 
         <div className="text-center text-luxury-pearl/60">
-          <p>&copy; 2024 Marquis Galleria. All rights reserved. Developed by Marquis Development.</p>
+          <p>© 2025 Marquis Galleria. All rights reserved. Developed by Marquis Development.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
