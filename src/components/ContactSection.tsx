@@ -20,6 +20,20 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const emailBody = `New Property Inquiry - Marquis One
+
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email}
+Unit Preference: ${formData.unitPreference}
+Message: ${formData.message}
+
+Please send floor plans and pricing information.`;
+
+    const mailtoLink = `mailto:ehab@bgatere.com?subject=Property Inquiry - Marquis One&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = mailtoLink;
+    
     toast.success("Thank you! We'll contact you within 24 hours with floor plans and pricing.");
     setFormData({
       name: "",
