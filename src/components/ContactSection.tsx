@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -23,43 +22,16 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name'),
-      phone: formData.get('phone'),
-      email: formData.get('email'),
-      unitPreference: formData.get('unitPreference'),
-    };
-
     try {
-      // Send email using EmailJS
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // You'll need to set this up at emailjs.com
-        'YOUR_TEMPLATE_ID', // You'll need to create a template
-        {
-          from_name: data.name,
-          from_email: data.email,
-          phone: data.phone,
-          unit_preference: data.unitPreference,
-          to_email: 'ehab@bgatere.com',
-          subject: 'New Lead - Marquis One Landing Page',
-        },
-        'YOUR_PUBLIC_KEY' // Your EmailJS public key
-      );
-
       toast({
         title: "✅ Details Sent Successfully!",
-        description: `Thank you ${data.name}! Your inquiry has been submitted. Our team will contact you within 24 hours with pricing and floor plans.`,
+        description: "Thank you! Your inquiry has been submitted. Our team will contact you within 24 hours with pricing and floor plans.",
         duration: 3000,
       });
 
-      // Reset form and redirect to same page
+      // Reset form
       e.currentTarget.reset();
       
-      // Redirect to same page after a short delay
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
     } catch (error) {
       toast({
         title: "⚠️ Submission Error",
@@ -130,9 +102,13 @@ const ContactSection = () => {
     <h3 className="font-playfair text-2xl font-bold mb-6 text-center">Send Me Prices & Floorplans</h3>
     
     <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
       onSubmit={handleSubmit}
       className="space-y-6"
     >
+      <input type="hidden" name="form-name" value="contact" />
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
