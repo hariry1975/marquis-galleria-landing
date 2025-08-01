@@ -134,6 +134,7 @@ const UnitTypesSection = () => {
                   <Button 
                     variant="outline" 
                     className="w-full border-gold text-gold hover:bg-gold hover:text-white"
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     Schedule Viewing
                   </Button>
