@@ -138,8 +138,8 @@ const HeroSection = () => {
 
         {/* Floating Form - Positioned Above */}
         <div className="absolute top-8 right-8 z-20 hidden lg:block">
-          <Card className="w-80 bg-gradient-luxury border-gold/30 shadow-2xl">
-            <CardContent className="p-4">
+          <Card className="w-64 bg-gradient-luxury border-gold/30 shadow-2xl">
+            <CardContent className="p-3">
               <h3 className="font-playfair text-xl font-bold mb-4 text-center text-white">Get VIP Pre Launch Access</h3>
               
               <form
