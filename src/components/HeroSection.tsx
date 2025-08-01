@@ -44,17 +44,6 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-5xl mx-auto">
-          {/* Trust Badges */}
-          <div className="flex justify-center items-center gap-4 mb-6">
-            <Badge variant="outline" className="bg-white/10 backdrop-blur-sm border-gold text-white">
-              <Shield className="w-4 h-4 mr-2 text-gold" />
-              RERA Approved
-            </Badge>
-            <Badge variant="outline" className="bg-white/10 backdrop-blur-sm border-gold text-white">
-              <Trophy className="w-4 h-4 mr-2 text-gold" />
-              Zero Commission
-            </Badge>
-          </div>
           
           <h1 className="font-playfair text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Own the Last Landmark Plot in <span className="bg-gradient-luxury bg-clip-text text-transparent">Arjan</span>
