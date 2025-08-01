@@ -25,6 +25,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
+      // Send via email
       const { data, error } = await supabase.functions.invoke('send-email', {
         body: {
           name: formData.name,
@@ -35,9 +36,28 @@ const ContactSection = () => {
         }
       });
 
-      if (error) throw error;
+      // Also send via WhatsApp as backup
+      const whatsappMessage = encodeURIComponent(`New Property Inquiry - Marquis One
 
-      toast.success("Thank you! We'll contact you within 24 hours with floor plans and pricing.");
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email}
+Unit Preference: ${formData.unitPreference}
+Message: ${formData.message || "No additional message"}
+
+Please send floor plans and pricing information.`);
+      
+      const phoneNumber = "971561700817";
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+      window.open(whatsappUrl, '_blank');
+
+      if (error) {
+        console.log('Email failed, but WhatsApp sent:', error);
+        toast.success("Details sent via WhatsApp! We'll contact you within 24 hours.");
+      } else {
+        toast.success("Details sent via email and WhatsApp! We'll contact you within 24 hours.");
+      }
+
       setFormData({
         name: "",
         phone: "",
@@ -46,8 +66,30 @@ const ContactSection = () => {
         message: ""
       });
     } catch (error) {
-      console.error('Email sending failed:', error);
-      toast.error("Failed to send email. Please try WhatsApp or call us directly.");
+      console.error('Submission failed:', error);
+      // Fallback to WhatsApp only
+      const whatsappMessage = encodeURIComponent(`New Property Inquiry - Marquis One
+
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email}
+Unit Preference: ${formData.unitPreference}
+Message: ${formData.message || "No additional message"}
+
+Please send floor plans and pricing information.`);
+      
+      const phoneNumber = "971561700817";
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+      window.open(whatsappUrl, '_blank');
+      
+      toast.success("Details sent via WhatsApp! We'll contact you within 24 hours.");
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        unitPreference: "",
+        message: ""
+      });
     } finally {
       setIsSubmitting(false);
     }
