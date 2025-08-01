@@ -7,7 +7,7 @@ const Footer = () => {
             <img 
               src="/lovable-uploads/a16d7663-c701-491f-a49d-0f12afd15dd4.png" 
               alt="Bright Gate Properties" 
-              className="h-16 w-auto mb-4"
+              className="h-20 w-auto mb-4"
             />
             <p className="text-luxury-pearl/70">
               A revolutionary icon of modern living in Arjan, Dubai.
