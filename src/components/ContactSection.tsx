@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -23,20 +24,38 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    const name = formData.get('name') as string;
+    const contactData = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      unitPreference: formData.get('unitPreference') as string,
+    };
 
-    // Simulate form processing
-    setTimeout(() => {
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: contactData,
+      });
+
+      if (error) throw error;
+
       toast({
         title: "✅ Details Sent Successfully!",
-        description: `Thank you ${name}! Your inquiry has been submitted. Our team will contact you within 24 hours with pricing and floor plans.`,
+        description: `Thank you ${contactData.name}! Your inquiry has been submitted. Our team will contact you within 24 hours with pricing and floor plans.`,
         duration: 5000,
       });
 
       // Reset form
       e.currentTarget.reset();
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "⚠️ Submission Error",
+        description: "There was an issue submitting your details. Please try again or contact us directly via WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
