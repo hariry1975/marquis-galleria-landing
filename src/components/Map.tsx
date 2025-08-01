@@ -6,8 +6,8 @@ const Map = () => {
   return (
     <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-luxury">
       <img 
-        src="/lovable-uploads/377dee8b-cd9f-455a-ac38-1a895db10fc3.png" 
-        alt="Marquis One Correct Location Map" 
+        src="/lovable-uploads/6de5bca5-f7ea-4ff3-9688-d535c4608871.png" 
+        alt="Marquis One Location in Arjan-Dubailand" 
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
