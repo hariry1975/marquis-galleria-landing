@@ -10,7 +10,7 @@ import {
   ShoppingBag, 
   Sparkles 
 } from "lucide-react";
-import amenitiesPool from "@/assets/amenities-pool.jpg";
+import amenitiesPool from "@/assets/amenities-luxury-pool.jpg";
 
 const AmenitiesSection = () => {
   const amenities = [
