@@ -102,14 +102,14 @@ const ContactSection = () => {
     <h3 className="font-playfair text-2xl font-bold mb-6 text-center">Send Me Prices & Floorplans</h3>
     
     <form
-      name="contact"
+      action="https://formsubmit.co/ehab@bgatere.com"
       method="POST"
-      data-netlify="true"
       onSubmit={handleSubmit}
       className="space-y-6"
     >
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="hidden" name="recipient" value="ehab@bgatere.com" />
+      <input type="hidden" name="_subject" value="New Lead - Marquis One Landing Page" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
