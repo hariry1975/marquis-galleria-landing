@@ -22,7 +22,7 @@ const ProjectOverview = () => {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Introducing Marquis One – A Lifestyle of Elevation
+            A Lifestyle of Elevation
           </h2>
           
           <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
