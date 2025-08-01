@@ -137,8 +137,8 @@ const HeroSection = () => {
 
           {/* Right Form */}
           <div className="flex justify-center lg:justify-end">
-            <Card className="w-full max-w-sm bg-gradient-luxury border-gold/30 shadow-2xl">
-              <CardContent className="p-5">
+            <Card className="w-full max-w-xs bg-gradient-luxury border-gold/30 shadow-2xl">
+              <CardContent className="p-4">
                 <h3 className="font-playfair text-xl font-bold mb-4 text-center text-white">Get VIP Pre Launch Access</h3>
                 
                 <form
