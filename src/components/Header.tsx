@@ -14,7 +14,7 @@ const Header = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#overview" className="text-foreground hover:text-primary transition-colors">Overview</a>
           <a href="#amenities" className="text-foreground hover:text-primary transition-colors">Amenities</a>
-          <a href="#floor-plans" className="text-foreground hover:text-primary transition-colors">Floor Plans</a>
+          <a href="#floor-plans" className="text-foreground hover:text-primary transition-colors">Property Type</a>
           <a href="#location" className="text-foreground hover:text-primary transition-colors">Location</a>
           <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
         </nav>

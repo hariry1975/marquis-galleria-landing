@@ -19,7 +19,7 @@ const Footer = () => {
             <ul className="space-y-2 text-luxury-pearl/70">
               <li><a href="#overview" className="hover:text-primary transition-colors">Overview</a></li>
               <li><a href="#amenities" className="hover:text-primary transition-colors">Amenities</a></li>
-              <li><a href="#floor-plans" className="hover:text-primary transition-colors">Floor Plans</a></li>
+              <li><a href="#floor-plans" className="hover:text-primary transition-colors">Property Type</a></li>
               <li><a href="#location" className="hover:text-primary transition-colors">Location</a></li>
             </ul>
           </div>

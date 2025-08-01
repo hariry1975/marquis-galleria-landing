@@ -71,11 +71,11 @@ const UnitTypesSection = () => {
   ];
 
   return (
-    <section id="units" className="py-20 bg-muted/30">
+    <section id="floor-plans" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 border-gold text-gold">
-            Floor Plans
+            Property Type
           </Badge>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">
             Choose Your Perfect <span className="text-gold">Home</span>

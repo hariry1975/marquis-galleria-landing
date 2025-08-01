@@ -40,8 +40,13 @@ const ProjectOverview = () => {
             ))}
           </div>
 
-          <Button variant="luxury" size="lg" className="px-8">
-            CTA
+          <Button 
+            variant="luxury" 
+            size="lg" 
+            className="px-8"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Get More Details
           </Button>
         </div>
       </div>
