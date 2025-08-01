@@ -4,12 +4,11 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="text-2xl font-bold bg-gradient-luxury bg-clip-text text-transparent">
-                MARQUIS
-              </div>
-              <div className="text-2xl font-light">One</div>
-            </div>
+            <img 
+              src="/lovable-uploads/a16d7663-c701-491f-a49d-0f12afd15dd4.png" 
+              alt="Bright Gate Properties" 
+              className="h-12 w-auto mb-4"
+            />
             <p className="text-luxury-pearl/70">
               A revolutionary icon of modern living in Arjan, Dubai.
             </p>
