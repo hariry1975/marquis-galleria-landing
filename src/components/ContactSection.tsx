@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -31,19 +32,20 @@ const ContactSection = () => {
     };
 
     try {
-      // Submit to FormSubmit.co
-      const response = await fetch('https://formsubmit.co/ehab@bgatere.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      // Send email using EmailJS
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // You'll need to set this up at emailjs.com
+        'YOUR_TEMPLATE_ID', // You'll need to create a template
+        {
+          from_name: data.name,
+          from_email: data.email,
+          phone: data.phone,
+          unit_preference: data.unitPreference,
+          to_email: 'ehab@bgatere.com',
+          subject: 'New Lead - Marquis One Landing Page',
         },
-        body: JSON.stringify({
-          ...data,
-          _captcha: 'false',
-          _template: 'table',
-          _subject: 'New Lead - Marquis One Landing Page',
-        }),
-      });
+        'YOUR_PUBLIC_KEY' // Your EmailJS public key
+      );
 
       toast({
         title: "✅ Details Sent Successfully!",
