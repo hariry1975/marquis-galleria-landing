@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/lib/supabase";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -17,38 +18,39 @@ const ContactSection = () => {
     unitPreference: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    const emailBody = `New Property Inquiry - Marquis One
-
-Name: ${formData.name}
-Phone: ${formData.phone}
-Email: ${formData.email}
-Unit Preference: ${formData.unitPreference}
-Message: ${formData.message}
-
-Please send floor plans and pricing information.`;
-
-    // Copy to clipboard
     try {
-      await navigator.clipboard.writeText(`To: ehab@bgatere.com
-Subject: Property Inquiry - Marquis One
+      const { data, error } = await supabase.functions.invoke('send-email', {
+        body: {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          unitPreference: formData.unitPreference,
+          message: formData.message || "No additional message"
+        }
+      });
 
-${emailBody}`);
-      toast.success("Details copied to clipboard! Please email ehab@bgatere.com or use WhatsApp below.");
-    } catch (err) {
-      toast.success("Please contact ehab@bgatere.com with your details or use WhatsApp below.");
+      if (error) throw error;
+
+      toast.success("Thank you! We'll contact you within 24 hours with floor plans and pricing.");
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        unitPreference: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      toast.error("Failed to send email. Please try WhatsApp or call us directly.");
+    } finally {
+      setIsSubmitting(false);
     }
-    
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      unitPreference: "",
-      message: ""
-    });
   };
 
   const handleWhatsApp = () => {
@@ -179,10 +181,11 @@ Please share floor plans and pricing information.`);
                   <div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-gradient-luxury text-white hover:bg-gold"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-luxury text-white hover:bg-gold disabled:opacity-50"
                     >
                       <Send className="w-4 h-4 mr-2" />
-                      Send Me Prices & Floorplans
+                      {isSubmitting ? "Sending..." : "Send Me Prices & Floorplans"}
                     </Button>
                     
                     <div className="mt-6 text-center space-y-2">
