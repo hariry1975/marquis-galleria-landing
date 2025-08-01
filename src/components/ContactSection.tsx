@@ -48,11 +48,16 @@ const ContactSection = () => {
       toast({
         title: "✅ Details Sent Successfully!",
         description: `Thank you ${data.name}! Your inquiry has been submitted. Our team will contact you within 24 hours with pricing and floor plans.`,
-        duration: 5000,
+        duration: 3000,
       });
 
-      // Reset form
+      // Reset form and redirect to same page
       e.currentTarget.reset();
+      
+      // Redirect to same page after a short delay
+      setTimeout(() => {
+        window.location.href = window.location.href;
+      }, 2000);
     } catch (error) {
       toast({
         title: "⚠️ Submission Error",
