@@ -45,7 +45,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-5xl mx-auto">
           
-          <h1 className="font-playfair text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Own the Last Landmark Plot in <span className="bg-gradient-luxury bg-clip-text text-transparent">Arjan</span>
           </h1>
           
