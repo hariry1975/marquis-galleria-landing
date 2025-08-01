@@ -57,15 +57,15 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-5xl mx-auto">
           
-          <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-4 leading-tight">
             Own the Last Landmark Plot in <span className="bg-gradient-luxury bg-clip-text text-transparent">Arjan</span>
           </h1>
           
-          <p className="text-xl md:text-2xl mb-6 text-white/90 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl mb-4 text-white/90 max-w-3xl mx-auto">
             <strong>Zero Commission!</strong> Luxury living meets prime investment. Final pre-launch units at Marquis One – Q4 2028 handover, unbeatable lifestyle amenities, and no agent fees.
           </p>
           
-          <div className="flex flex-wrap justify-center items-center gap-6 mb-8 text-white/80">
+          <div className="flex flex-wrap justify-center items-center gap-6 mb-6 text-white/80">
             <div className="flex items-center">
               <MapPin className="w-5 h-5 mr-2 text-gold" />
               Arjan, Dubai | Plot P-22
@@ -81,7 +81,7 @@ const HeroSection = () => {
           </div>
           
           {/* Countdown Timer */}
-          <div className="bg-white/10 backdrop-blur-sm border border-gold/30 rounded-lg p-6 mb-8 max-w-md mx-auto">
+          <div className="bg-white/10 backdrop-blur-sm border border-gold/30 rounded-lg p-6 mb-6 max-w-md mx-auto">
             <div className="flex items-center justify-center mb-3">
               <Clock className="w-5 h-5 mr-2 text-gold" />
               <span className="text-sm font-semibold">Pre-Launch Offer Ends In:</span>
@@ -106,7 +106,7 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="mb-8">
+          <div className="mb-6">
             <p className="text-sm text-white/70 mb-2">Starting From</p>
             <p className="text-4xl md:text-5xl font-bold font-playfair text-gold">AED 750,000</p>
             <p className="text-sm text-white/60 mt-1">*Zero commission saves you AED 37,500</p>
@@ -121,7 +121,7 @@ const HeroSection = () => {
           </div>
           
           {/* Social Proof */}
-          <div className="mt-8 text-white/70">
+          <div className="mt-6 text-white/70">
             <p className="text-base">🔥 <strong>120+ clients already registered</strong>• Only few units left</p>
           </div>
         </div>
