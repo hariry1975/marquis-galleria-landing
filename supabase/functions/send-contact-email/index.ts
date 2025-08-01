@@ -44,8 +44,14 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Email sent successfully:", emailResponse);
 
+    // Check if there was an error in the email response
+    if (emailResponse.error) {
+      console.error("Resend API error:", emailResponse.error);
+      throw new Error(`Email sending failed: ${emailResponse.error.message}`);
+    }
+
     // Also send a confirmation email to the customer
-    await resend.emails.send({
+    const confirmationResponse = await resend.emails.send({
       from: "Marquis One <onboarding@resend.dev>",
       to: [email],
       subject: "Thank you for your interest in Marquis One",
@@ -63,6 +69,13 @@ const handler = async (req: Request): Promise<Response> => {
         <p>Best regards,<br>The Marquis One Team</p>
       `,
     });
+
+    console.log("Confirmation email response:", confirmationResponse);
+
+    if (confirmationResponse.error) {
+      console.error("Confirmation email error:", confirmationResponse.error);
+      // Don't throw error for confirmation email failure, just log it
+    }
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
