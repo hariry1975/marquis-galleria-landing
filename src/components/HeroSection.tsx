@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Building, Calendar, Clock, Trophy, Shield } from "lucide-react";
 import heroBuilding from "@/assets/hero-marquis-one.jpg";
 import { useState, useEffect } from "react";
-
 const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 15,
@@ -11,33 +10,46 @@ const HeroSection = () => {
     minutes: 45,
     seconds: 30
   });
-
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
+          return {
+            ...prev,
+            seconds: prev.seconds - 1
+          };
         } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+          return {
+            ...prev,
+            minutes: prev.minutes - 1,
+            seconds: 59
+          };
         } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
+          return {
+            ...prev,
+            hours: prev.hours - 1,
+            minutes: 59,
+            seconds: 59
+          };
         } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
+          return {
+            ...prev,
+            days: prev.days - 1,
+            hours: 23,
+            minutes: 59,
+            seconds: 59
+          };
         }
         return prev;
       });
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-        style={{ backgroundImage: `url(${heroBuilding})` }}
-      >
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${heroBuilding})`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/80 to-navy/90"></div>
       </div>
       
@@ -101,11 +113,9 @@ const HeroSection = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-luxury text-white hover:bg-gold text-lg px-8 py-6 font-semibold shadow-glow"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
+            <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+            behavior: 'smooth'
+          })} className="bg-gradient-luxury text-white hover:bg-gold px-8 py-6 font-semibold shadow-glow text-base">
               Register Now to Get Prices & Floor Plans
             </Button>
           </div>
@@ -123,8 +133,6 @@ const HeroSection = () => {
           <div className="w-1 h-3 bg-gold/50 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
