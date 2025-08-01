@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import ProjectOverview from "@/components/ProjectOverview";
 import WhyArjanSection from "@/components/WhyArjanSection";
 
 import UnitTypesSection from "@/components/UnitTypesSection";
@@ -17,6 +18,7 @@ const Index = () => {
       <StickyCtaBar />
       <Header />
       <HeroSection />
+      <ProjectOverview />
       <WhyArjanSection />
       
       <UnitTypesSection />
