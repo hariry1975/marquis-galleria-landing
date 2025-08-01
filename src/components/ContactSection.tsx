@@ -137,84 +137,93 @@ Please share floor plans and pricing information.`);
           </div>
 
           <div>
-            <Card className="shadow-luxury border-gold/20">
-              <CardContent className="p-8">
-                <h3 className="font-playfair text-2xl font-bold mb-6 text-center">Send Me Prices & Floorplans</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="name" className="text-sm font-medium">Full Name *</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        placeholder="Enter your full name"
-                        required
-                        className="mt-1"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="phone" className="text-sm font-medium">Phone (with country code) *</Label>
-                      <Input
-                        id="phone"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        placeholder="+971 XX XXX XXXX"
-                        required
-                        className="mt-1"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      placeholder="your.email@example.com"
-                      required
-                      className="mt-1"
-                    />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="unit" className="text-sm font-medium">Select Unit Type</Label>
-                    <Select value={formData.unitPreference} onValueChange={(value) => setFormData({...formData, unitPreference: value})}>
-                      <SelectTrigger className="mt-1">
-                        <SelectValue placeholder="Select preferred unit type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="studio">Studio (AED 750,000)</SelectItem>
-                        <SelectItem value="1bhk">1BHK (AED 950,000)</SelectItem>
-                        <SelectItem value="2bhk">2BHK (AED 1,500,000)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  
-                  <div>
-                    <Button 
-                      type="submit" 
-                      disabled={isSubmitting}
-                      className="w-full bg-gradient-luxury text-white hover:bg-gold disabled:opacity-50"
-                    >
-                      <Send className="w-4 h-4 mr-2" />
-                      {isSubmitting ? "Sending..." : "Send Me Prices & Floorplans"}
-                    </Button>
-                    
-                    <div className="mt-6 text-center space-y-2">
-                      <p className="text-sm text-muted-foreground">
-                        📞 No obligations. No pressure. Just opportunity.
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        💬 Live WhatsApp Chat available.
-                      </p>
-                    </div>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
+           <Card className="shadow-luxury border-gold/20">
+  <CardContent className="p-8">
+    <h3 className="font-playfair text-2xl font-bold mb-6 text-center">Send Me Prices & Floorplans</h3>
+    
+    <form
+      action="https://formsubmit.co/ehab@bgatere.com"
+      method="POST"
+      className="space-y-6"
+    >
+      {/* Hidden Fields for Email Handling */}
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_subject" value="New Lead - Marquis One Landing Page" />
+      <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="name" className="text-sm font-medium">Full Name *</Label>
+          <Input
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+            className="mt-1"
+          />
+        </div>
+        <div>
+          <Label htmlFor="phone" className="text-sm font-medium">Phone (with country code) *</Label>
+          <Input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+971 XX XXX XXXX"
+            required
+            className="mt-1"
+          />
+        </div>
+      </div>
+
+      <div>
+        <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
+        <Input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="your.email@example.com"
+          required
+          className="mt-1"
+        />
+      </div>
+
+      <div>
+        <Label htmlFor="unit" className="text-sm font-medium">Select Unit Type</Label>
+        <select
+          id="unit"
+          name="unitPreference"
+          required
+          className="mt-1 w-full border rounded px-3 py-2 text-sm"
+        >
+          <option value="">Select preferred unit type</option>
+          <option value="studio">Studio (AED 750,000)</option>
+          <option value="1bhk">1BHK (AED 950,000)</option>
+          <option value="2bhk">2BHK (AED 1,500,000)</option>
+        </select>
+      </div>
+
+      <div>
+        <Button 
+          type="submit"
+          className="w-full bg-gradient-luxury text-white hover:bg-gold"
+        >
+          <Send className="w-4 h-4 mr-2" />
+          Send Me Prices & Floorplans
+        </Button>
+
+        <div className="mt-6 text-center space-y-2">
+          <p className="text-sm text-muted-foreground">
+            📞 No obligations. No pressure. Just opportunity.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            💬 Live WhatsApp Chat available.
+          </p>
+        </div>
+      </div>
+    </form>
+  </CardContent>
+</Card>
           </div>
         </div>
       </div>
