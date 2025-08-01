@@ -53,10 +53,10 @@ Please share floor plans and pricing information.`);
             Get In Touch
           </Badge>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">
-            Register for <span className="text-gold">Floor Plans & Prices</span>
+            🚀 Secure Pre-Launch Access – <span className="text-gold">Limited Units Available</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get exclusive access to floor plans, pricing, and payment options. Our team will contact you within 24 hours.
+            Submit your interest and one of our consultants will get in touch within 24 hours.
           </p>
         </div>
 
@@ -101,7 +101,7 @@ Please share floor plans and pricing information.`);
           <div>
             <Card className="shadow-luxury border-gold/20">
               <CardContent className="p-8">
-                <h3 className="font-playfair text-2xl font-bold mb-6 text-center">Send Me Prices & Floor Plans</h3>
+                <h3 className="font-playfair text-2xl font-bold mb-6 text-center">Send Me Prices & Floorplans</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -116,7 +116,7 @@ Please share floor plans and pricing information.`);
                       />
                     </div>
                     <div>
-                      <Label htmlFor="phone" className="text-sm font-medium">Phone Number *</Label>
+                      <Label htmlFor="phone" className="text-sm font-medium">Phone (with country code) *</Label>
                       <Input
                         id="phone"
                         value={formData.phone}
@@ -142,7 +142,7 @@ Please share floor plans and pricing information.`);
                   </div>
                   
                   <div>
-                    <Label htmlFor="unit" className="text-sm font-medium">Unit Preference</Label>
+                    <Label htmlFor="unit" className="text-sm font-medium">Select Unit Type</Label>
                     <Select value={formData.unitPreference} onValueChange={(value) => setFormData({...formData, unitPreference: value})}>
                       <SelectTrigger className="mt-1">
                         <SelectValue placeholder="Select preferred unit type" />
@@ -161,8 +161,17 @@ Please share floor plans and pricing information.`);
                       className="w-full bg-gradient-luxury text-white hover:bg-gold"
                     >
                       <Send className="w-4 h-4 mr-2" />
-                      Send Me Floor Plans
+                      Send Me Prices & Floorplans
                     </Button>
+                    
+                    <div className="mt-6 text-center space-y-2">
+                      <p className="text-sm text-muted-foreground">
+                        📞 No obligations. No pressure. Just opportunity.
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        💬 Live WhatsApp Chat available.
+                      </p>
+                    </div>
                   </div>
                 </form>
               </CardContent>
