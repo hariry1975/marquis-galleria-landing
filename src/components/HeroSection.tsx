@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Building, Calendar, Clock, Trophy, Shield } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { MapPin, Building, Calendar, Clock, Trophy, Shield, Send } from "lucide-react";
 import heroBuilding from "@/assets/hero-marquis-one.jpg";
 import { useState, useEffect } from "react";
+
 const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 15,
@@ -10,6 +14,7 @@ const HeroSection = () => {
     minutes: 45,
     seconds: 30
   });
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
@@ -43,86 +48,179 @@ const HeroSection = () => {
         return prev;
       });
     }, 1000);
+
     return () => clearInterval(timer);
   }, []);
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
       {/* Background Image */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-      backgroundImage: `url(${heroBuilding})`
-    }}>
+        backgroundImage: `url(${heroBuilding})`
+      }}>
         <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/80 to-navy/90"></div>
       </div>
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <div className="max-w-5xl mx-auto">
-          
-          <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-4 leading-tight">
-            Own the Last Landmark Plot in <span className="bg-gradient-luxury bg-clip-text text-transparent">Arjan</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl mb-4 text-white/90 max-w-3xl mx-auto">
-            <strong>Zero Commission!</strong> Luxury living meets prime investment. Final pre-launch units at Marquis One – Q4 2028 handover, unbeatable lifestyle amenities, and no agent fees.
-          </p>
-          
-          <div className="flex flex-wrap justify-center items-center gap-6 mb-6 text-white/80">
-            <div className="flex items-center">
-              <MapPin className="w-5 h-5 mr-2 text-gold" />
-              Arjan, Dubai | Plot P-22
-            </div>
-            <div className="flex items-center">
-              <Building className="w-5 h-5 mr-2 text-gold" />
-              Studio,1 & 2 Bedroom Apartments
-            </div>
-            <div className="flex items-center">
-              <Calendar className="w-5 h-5 mr-2 text-gold" />
-              Q4 2028 Handover
-            </div>
-          </div>
-          
-          {/* Countdown Timer */}
-          <div className="bg-white/10 backdrop-blur-sm border border-gold/30 rounded-lg p-6 mb-6 max-w-md mx-auto">
-            <div className="flex items-center justify-center mb-3">
-              <Clock className="w-5 h-5 mr-2 text-gold" />
-              <span className="text-sm font-semibold">Pre-Launch Offer Ends In:</span>
-            </div>
-            <div className="grid grid-cols-4 gap-2 text-center">
-              <div className="bg-gold/20 rounded p-2">
-                <div className="text-xl font-bold text-gold">{timeLeft.days}</div>
-                <div className="text-xs text-white/70">DAYS</div>
+      <div className="relative z-10 container mx-auto px-4 text-white">
+        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-8rem)]">
+          {/* Left Content */}
+          <div className="text-center lg:text-left">
+            <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-4 leading-tight">
+              Own the Last Landmark Plot in <span className="bg-gradient-luxury bg-clip-text text-transparent">Arjan</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl mb-4 text-white/90">
+              <strong>Zero Commission!</strong> Luxury living meets prime investment. Final pre-launch units at Marquis One – Q4 2028 handover, unbeatable lifestyle amenities, and no agent fees.
+            </p>
+            
+            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 mb-6 text-white/80">
+              <div className="flex items-center">
+                <MapPin className="w-5 h-5 mr-2 text-gold" />
+                Arjan, Dubai | Plot P-22
               </div>
-              <div className="bg-gold/20 rounded p-2">
-                <div className="text-xl font-bold text-gold">{timeLeft.hours}</div>
-                <div className="text-xs text-white/70">HOURS</div>
+              <div className="flex items-center">
+                <Building className="w-5 h-5 mr-2 text-gold" />
+                Studio,1 & 2 Bedroom Apartments
               </div>
-              <div className="bg-gold/20 rounded p-2">
-                <div className="text-xl font-bold text-gold">{timeLeft.minutes}</div>
-                <div className="text-xs text-white/70">MINS</div>
-              </div>
-              <div className="bg-gold/20 rounded p-2">
-                <div className="text-xl font-bold text-gold animate-countdown">{timeLeft.seconds}</div>
-                <div className="text-xs text-white/70">SECS</div>
+              <div className="flex items-center">
+                <Calendar className="w-5 h-5 mr-2 text-gold" />
+                Q4 2028 Handover
               </div>
             </div>
+            
+            {/* Countdown Timer */}
+            <div className="bg-white/10 backdrop-blur-sm border border-gold/30 rounded-lg p-6 mb-6 max-w-md mx-auto lg:mx-0">
+              <div className="flex items-center justify-center mb-3">
+                <Clock className="w-5 h-5 mr-2 text-gold" />
+                <span className="text-sm font-semibold">Pre-Launch Offer Ends In:</span>
+              </div>
+              <div className="grid grid-cols-4 gap-2 text-center">
+                <div className="bg-gold/20 rounded p-2">
+                  <div className="text-xl font-bold text-gold">{timeLeft.days}</div>
+                  <div className="text-xs text-white/70">DAYS</div>
+                </div>
+                <div className="bg-gold/20 rounded p-2">
+                  <div className="text-xl font-bold text-gold">{timeLeft.hours}</div>
+                  <div className="text-xs text-white/70">HOURS</div>
+                </div>
+                <div className="bg-gold/20 rounded p-2">
+                  <div className="text-xl font-bold text-gold">{timeLeft.minutes}</div>
+                  <div className="text-xs text-white/70">MINS</div>
+                </div>
+                <div className="bg-gold/20 rounded p-2">
+                  <div className="text-xl font-bold text-gold animate-countdown">{timeLeft.seconds}</div>
+                  <div className="text-xs text-white/70">SECS</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mb-6">
+              <p className="text-sm text-white/70 mb-2">Starting From</p>
+              <p className="text-4xl md:text-5xl font-bold font-playfair text-gold">AED 750,000</p>
+              <p className="text-sm text-white/60 mt-1">*Zero commission saves you AED 37,500</p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth'
+              })} className="bg-gradient-luxury text-white hover:bg-gold px-8 py-6 font-semibold shadow-glow text-base">
+                Register Now to Get Prices & Floor Plans
+              </Button>
+            </div>
+            
+            {/* Social Proof */}
+            <div className="mt-6 text-white/70">
+              <p className="text-base">🔥 <strong>120+ clients already registered</strong>• Only few units left</p>
+            </div>
           </div>
-          
-          <div className="mb-6">
-            <p className="text-sm text-white/70 mb-2">Starting From</p>
-            <p className="text-4xl md:text-5xl font-bold font-playfair text-gold">AED 750,000</p>
-            <p className="text-sm text-white/60 mt-1">*Zero commission saves you AED 37,500</p>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
-            behavior: 'smooth'
-          })} className="bg-gradient-luxury text-white hover:bg-gold px-8 py-6 font-semibold shadow-glow text-base">
-              Register Now to Get Prices & Floor Plans
-            </Button>
-          </div>
-          
-          {/* Social Proof */}
-          <div className="mt-6 text-white/70">
-            <p className="text-base">🔥 <strong>120+ clients already registered</strong>• Only few units left</p>
+
+          {/* Right Form */}
+          <div className="flex justify-center lg:justify-end">
+            <Card className="w-full max-w-md bg-white/95 backdrop-blur-sm border-gold/20 shadow-2xl">
+              <CardContent className="p-6">
+                <h3 className="font-playfair text-2xl font-bold mb-6 text-center text-navy">Get Instant Access</h3>
+                
+                <form
+                  action="https://formsubmit.co/ehab@bgatere.com"
+                  method="POST"
+                  className="space-y-4"
+                >
+                  {/* Hidden Fields for Email Handling */}
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_subject" value="New Lead - Marquis One Hero Form" />
+                  <input type="hidden" name="_next" value="https://marquis-one.lovable.app?submitted=true" />
+
+                  <div>
+                    <Label htmlFor="hero-name" className="text-sm font-medium text-navy">Full Name *</Label>
+                    <Input
+                      id="hero-name"
+                      name="name"
+                      placeholder="Enter your full name"
+                      required
+                      className="mt-1"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="hero-phone" className="text-sm font-medium text-navy">Phone (with country code) *</Label>
+                    <Input
+                      type="tel"
+                      id="hero-phone"
+                      name="phone"
+                      placeholder="+971 XX XXX XXXX"
+                      required
+                      className="mt-1"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="hero-email" className="text-sm font-medium text-navy">Email Address *</Label>
+                    <Input
+                      id="hero-email"
+                      type="email"
+                      name="email"
+                      placeholder="your.email@example.com"
+                      required
+                      className="mt-1"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="hero-unit" className="text-sm font-medium text-navy">Select Unit Type</Label>
+                    <select
+                      id="hero-unit"
+                      name="unitPreference"
+                      required
+                      className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                    >
+                      <option value="">Select preferred unit type</option>
+                      <option value="studio">Studio (AED 750,000)</option>
+                      <option value="1bhk">1BHK (AED 950,000)</option>
+                      <option value="2bhk">2BHK (AED 1,500,000)</option>
+                    </select>
+                  </div>
+
+                  <Button 
+                    type="submit"
+                    className="w-full bg-gradient-luxury text-white hover:bg-gold"
+                  >
+                    <Send className="w-4 h-4 mr-2" />
+                    Send Me Prices & Floorplans
+                  </Button>
+
+                  <div className="text-center space-y-1">
+                    <p className="text-xs text-muted-foreground">
+                      📞 No obligations. No pressure. Just opportunity.
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      💬 Instant WhatsApp response available.
+                    </p>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
@@ -133,6 +231,8 @@ const HeroSection = () => {
           <div className="w-1 h-3 bg-gold/50 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
