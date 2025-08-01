@@ -122,7 +122,7 @@ const HeroSection = () => {
           
           {/* Social Proof */}
           <div className="mt-8 text-white/70">
-            <p className="text-sm">🔥 <strong>120+ clients already registered</strong> • Only few units left</p>
+            <p className="text-base">🔥 <strong>120+ clients already registered</strong>• Only few units left</p>
           </div>
         </div>
       </div>
