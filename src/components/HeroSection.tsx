@@ -139,7 +139,7 @@ const HeroSection = () => {
           <div className="flex justify-center lg:justify-end">
             <Card className="w-full max-w-md bg-white/95 backdrop-blur-sm border-gold/20 shadow-2xl">
               <CardContent className="p-6">
-                <h3 className="font-playfair text-2xl font-bold mb-6 text-center text-navy">Get Instant Access</h3>
+                <h3 className="font-playfair text-2xl font-bold mb-6 text-center text-navy">Get VIP Pre Launch Access</h3>
                 
                 <form
                   action="https://formsubmit.co/ehab@bgatere.com"
