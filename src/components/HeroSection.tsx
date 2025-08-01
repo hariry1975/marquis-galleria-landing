@@ -63,9 +63,9 @@ const HeroSection = () => {
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-white">
-        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-8rem)]">
-          {/* Left Content */}
-          <div className="text-center">
+        {/* Main Content - Full Width */}
+        <div className="flex items-center justify-center min-h-[calc(100vh-8rem)]">
+          <div className="text-center max-w-4xl mx-auto">
             <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-4 leading-tight text-center">
               Own the Last Landmark<br />Plot in <span className="bg-gradient-luxury bg-clip-text text-transparent">Arjan</span>
             </h1>
@@ -134,94 +134,94 @@ const HeroSection = () => {
               <p className="text-base">🔥 <strong>120+ clients already registered</strong>• Only few units left</p>
             </div>
           </div>
+        </div>
 
-          {/* Right Form */}
-          <div className="flex justify-center lg:justify-end">
-            <Card className="w-full max-w-xs bg-gradient-luxury border-gold/30 shadow-2xl">
-              <CardContent className="p-4">
-                <h3 className="font-playfair text-xl font-bold mb-4 text-center text-white">Get VIP Pre Launch Access</h3>
-                
-                <form
-                  action="https://formsubmit.co/ehab@bgatere.com"
-                  method="POST"
-                  className="space-y-3"
-                >
-                  {/* Hidden Fields for Email Handling */}
-                  <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_template" value="table" />
-                  <input type="hidden" name="_subject" value="New Lead - Marquis One Hero Form" />
-                  <input type="hidden" name="_next" value="https://marquis-one.lovable.app?submitted=true" />
+        {/* Floating Form - Positioned Above */}
+        <div className="absolute top-8 right-8 z-20 hidden lg:block">
+          <Card className="w-80 bg-gradient-luxury border-gold/30 shadow-2xl">
+            <CardContent className="p-4">
+              <h3 className="font-playfair text-xl font-bold mb-4 text-center text-white">Get VIP Pre Launch Access</h3>
+              
+              <form
+                action="https://formsubmit.co/ehab@bgatere.com"
+                method="POST"
+                className="space-y-3"
+              >
+                {/* Hidden Fields for Email Handling */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_subject" value="New Lead - Marquis One Hero Form" />
+                <input type="hidden" name="_next" value="https://marquis-one.lovable.app?submitted=true" />
 
-                  <div>
-                    <Label htmlFor="hero-name" className="text-sm font-medium text-white">Full Name *</Label>
-                    <Input
-                      id="hero-name"
-                      name="name"
-                      placeholder="Enter your full name"
-                      required
-                      className="mt-1"
-                    />
-                  </div>
+                <div>
+                  <Label htmlFor="hero-name" className="text-sm font-medium text-white">Full Name *</Label>
+                  <Input
+                    id="hero-name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                    className="mt-1"
+                  />
+                </div>
 
-                  <div>
-                    <Label htmlFor="hero-phone" className="text-sm font-medium text-white">Phone (with country code) *</Label>
-                    <Input
-                      type="tel"
-                      id="hero-phone"
-                      name="phone"
-                      placeholder="+971 XX XXX XXXX"
-                      required
-                      className="mt-1"
-                    />
-                  </div>
+                <div>
+                  <Label htmlFor="hero-phone" className="text-sm font-medium text-white">Phone (with country code) *</Label>
+                  <Input
+                    type="tel"
+                    id="hero-phone"
+                    name="phone"
+                    placeholder="+971 XX XXX XXXX"
+                    required
+                    className="mt-1"
+                  />
+                </div>
 
-                  <div>
-                    <Label htmlFor="hero-email" className="text-sm font-medium text-white">Email Address *</Label>
-                    <Input
-                      id="hero-email"
-                      type="email"
-                      name="email"
-                      placeholder="your.email@example.com"
-                      required
-                      className="mt-1"
-                    />
-                  </div>
+                <div>
+                  <Label htmlFor="hero-email" className="text-sm font-medium text-white">Email Address *</Label>
+                  <Input
+                    id="hero-email"
+                    type="email"
+                    name="email"
+                    placeholder="your.email@example.com"
+                    required
+                    className="mt-1"
+                  />
+                </div>
 
-                  <div>
-                    <Label htmlFor="hero-unit" className="text-sm font-medium text-white">Select Unit Type</Label>
-                    <select
-                      id="hero-unit"
-                      name="unitPreference"
-                      required
-                      className="mt-1 w-full border rounded px-3 py-2 text-sm bg-white"
-                    >
-                      <option value="">Select preferred unit type</option>
-                      <option value="studio">Studio (AED 750,000)</option>
-                      <option value="1bhk">1BHK (AED 950,000)</option>
-                      <option value="2bhk">2BHK (AED 1,500,000)</option>
-                    </select>
-                  </div>
-
-                  <Button 
-                    type="submit"
-                    className="w-full bg-navy text-white hover:bg-navy/90 font-semibold"
+                <div>
+                  <Label htmlFor="hero-unit" className="text-sm font-medium text-white">Select Unit Type</Label>
+                  <select
+                    id="hero-unit"
+                    name="unitPreference"
+                    required
+                    className="mt-1 w-full border rounded px-3 py-2 text-sm bg-white"
                   >
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Me Prices & Floorplans
-                  </Button>
+                    <option value="">Select preferred unit type</option>
+                    <option value="studio">Studio (AED 750,000)</option>
+                    <option value="1bhk">1BHK (AED 950,000)</option>
+                    <option value="2bhk">2BHK (AED 1,500,000)</option>
+                  </select>
+                </div>
 
-                  <div className="text-center space-y-1">
-                    <p className="text-xs text-white/90">
-                      📞 No obligations. No pressure. Just opportunity.
-                    </p>
-                    <p className="text-xs text-white/90">
-                      💬 Instant WhatsApp response available.
-                    </p>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+                <Button 
+                  type="submit"
+                  className="w-full bg-navy text-white hover:bg-navy/90 font-semibold"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  Send Me Prices & Floorplans
+                </Button>
+
+                <div className="text-center space-y-1">
+                  <p className="text-xs text-white/90">
+                    📞 No obligations. No pressure. Just opportunity.
+                  </p>
+                  <p className="text-xs text-white/90">
+                    💬 Instant WhatsApp response available.
+                  </p>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </div>
       
