@@ -1,114 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import React from 'react';
+import { Badge } from "@/components/ui/badge";
+import { MapPin } from "lucide-react";
 
 const Map = () => {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  const [mapboxToken, setMapboxToken] = useState('');
-  const [isTokenSet, setIsTokenSet] = useState(false);
-
-  // Arjan, Dubai coordinates
-  const arjanCoordinates: [number, number] = [55.2421, 25.0557];
-
-  const initializeMap = (token: string) => {
-    if (!mapContainer.current || !token) return;
-
-    mapboxgl.accessToken = token;
-    
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/light-v11',
-      center: arjanCoordinates,
-      zoom: 14,
-      pitch: 45,
-    });
-
-    // Add navigation controls
-    map.current.addControl(
-      new mapboxgl.NavigationControl({
-        visualizePitch: true,
-      }),
-      'top-right'
-    );
-
-    // Add a marker for the project location
-    new mapboxgl.Marker({
-      color: '#DAA520',
-      scale: 1.2
-    })
-      .setLngLat(arjanCoordinates)
-      .setPopup(
-        new mapboxgl.Popup().setHTML(
-          '<div class="p-2"><h3 class="font-bold text-primary">Marquis One</h3><p class="text-sm text-muted-foreground">Arjan, Dubai</p></div>'
-        )
-      )
-      .addTo(map.current);
-
-    // Style the map on load
-    map.current.on('style.load', () => {
-      // Add a subtle atmosphere
-      map.current?.setFog({
-        color: 'rgb(255, 255, 255)',
-        'high-color': 'rgb(245, 245, 250)',
-        'horizon-blend': 0.1,
-      });
-    });
-  };
-
-  const handleTokenSubmit = () => {
-    if (mapboxToken.trim()) {
-      setIsTokenSet(true);
-      initializeMap(mapboxToken.trim());
-    }
-  };
-
-  useEffect(() => {
-    return () => {
-      map.current?.remove();
-    };
-  }, []);
-
-  if (!isTokenSet) {
-    return (
-      <div className="w-full h-[500px] flex items-center justify-center">
-        <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle>Mapbox Configuration</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              To display the location map, please enter your Mapbox public token. 
-              Get your token at <a href="https://mapbox.com/" target="_blank" rel="noopener noreferrer" className="text-primary underline">mapbox.com</a>
-            </p>
-            <div className="space-y-2">
-              <Input
-                type="text"
-                placeholder="pk.eyJ1..."
-                value={mapboxToken}
-                onChange={(e) => setMapboxToken(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleTokenSubmit()}
-              />
-              <Button onClick={handleTokenSubmit} className="w-full">
-                Load Map
-              </Button>
-            </div>
-            <p className="text-xs text-muted-foreground">
-              For production: Add your token to Supabase Edge Function Secrets as MAPBOX_PUBLIC_TOKEN
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
   return (
-    <div className="relative w-full h-[500px] rounded-lg overflow-hidden">
-      <div ref={mapContainer} className="absolute inset-0" />
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-background/5 rounded-lg" />
+    <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-luxury">
+      <img 
+        src="/lovable-uploads/2de0b383-e058-4511-9916-e729db402790.png" 
+        alt="Arjan Dubai Location Map" 
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+      
+      {/* Location marker for Marquis One */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="relative">
+          <MapPin className="w-8 h-8 text-gold drop-shadow-lg" fill="currentColor" />
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+            <Badge variant="secondary" className="bg-white/90 text-navy border-gold">
+              Marquis One
+            </Badge>
+          </div>
+        </div>
+      </div>
+
+      {/* Arjan label */}
+      <div className="absolute top-4 right-4">
+        <Badge variant="outline" className="bg-white/90 border-gold text-navy">
+          Arjan, Dubai
+        </Badge>
+      </div>
     </div>
   );
 };
