@@ -108,14 +108,6 @@ const HeroSection = () => {
             >
               Register Now to Get Prices & Floor Plans
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-gold text-gold hover:bg-gold hover:text-white text-lg px-8 py-6 bg-white/10 backdrop-blur-sm"
-              onClick={() => document.getElementById('overview')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Learn More
-            </Button>
           </div>
           
           {/* Social Proof */}
