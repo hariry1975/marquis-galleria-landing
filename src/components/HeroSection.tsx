@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 30,
+    days: 15,
     hours: 12,
     minutes: 45,
     seconds: 30
