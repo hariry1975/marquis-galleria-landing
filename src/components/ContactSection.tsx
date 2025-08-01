@@ -56,7 +56,7 @@ const ContactSection = () => {
       
       // Redirect to same page after a short delay
       setTimeout(() => {
-        window.location.href = window.location.href;
+        window.location.reload();
       }, 2000);
     } catch (error) {
       toast({
