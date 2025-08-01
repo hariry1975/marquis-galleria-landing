@@ -109,6 +109,7 @@ const ContactSection = () => {
       className="space-y-6"
     >
       <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="recipient" value="ehab@bgatere.com" />
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
