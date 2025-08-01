@@ -19,28 +19,20 @@ const ContactSection = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
     setIsSubmitting(true);
-
-    try {
-      toast({
-        title: "✅ Details Sent Successfully!",
-        description: "Thank you! Your inquiry has been submitted. Our team will contact you within 24 hours with pricing and floor plans.",
-        duration: 3000,
-      });
-
-      // Reset form
-      e.currentTarget.reset();
-      
-    } catch (error) {
-      toast({
-        title: "⚠️ Submission Error",
-        description: "There was an issue submitting your details. Please try again or contact us directly via WhatsApp.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    
+    // For FormSubmit, we need to allow the default form submission
+    // The form will be submitted to FormSubmit.co automatically
+    
+    // Show a quick toast before submission
+    toast({
+      title: "📧 Submitting...",
+      description: "Sending your inquiry now...",
+      duration: 2000,
+    });
+    
+    // Allow the form to submit naturally to FormSubmit
+    // Don't prevent default - let it submit to the action URL
   };
 
   return (
