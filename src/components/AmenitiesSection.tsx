@@ -14,25 +14,24 @@ import amenitiesPool from "@/assets/amenities-luxury-pool.jpg";
 
 const AmenitiesSection = () => {
   const amenities = [
-    { icon: Waves, title: "Swimming Pool", description: "Temperature-controlled pool with leisure deck" },
-    { icon: Dumbbell, title: "Gymnasium", description: "State-of-the-art fitness facilities" },
-    { icon: Baby, title: "Kids Play Area", description: "Safe and supervised play zone for children" },
-    { icon: Car, title: "Smart Parking", description: "EV charging stations and covered parking" },
-    { icon: Trees, title: "Sky Lounge", description: "First in Arjan - Rooftop entertainment area" },
-    { icon: Utensils, title: "Business Centre", description: "Co-working spaces and meeting rooms" },
-    { icon: ShoppingBag, title: "Retail Outlets", description: "Convenient shopping within the complex" },
-    { icon: Sparkles, title: "24/7 Concierge", description: "Premium lifestyle management services" },
+    { icon: Waves, title: "Beach-Inspired Swimming Pool", description: "Luxury pool with leisure deck and beach-style ambiance" },
+    { icon: Dumbbell, title: "Wellness Club with Spa", description: "Full spa facilities with ice recovery tub" },
+    { icon: Baby, title: "Kids' Club", description: "Dedicated children's area with supervised activities" },
+    { icon: Car, title: "Smart Parking + EV Charging", description: "Intelligent parking with electric vehicle charging stations" },
+    { icon: Trees, title: "Sky Lounge + Vertical Gardens", description: "First in Arjan - Rooftop entertainment with green spaces" },
+    { icon: Utensils, title: "Creative Co-working Spaces", description: "Modern business center and meeting rooms" },
+    { icon: ShoppingBag, title: "BBQ Zones & Rooftop Garden", description: "Outdoor entertaining and dining areas" },
+    { icon: Sparkles, title: "24/7 Concierge & Security", description: "Premium lifestyle management and security services" },
   ];
 
   const creativeAmenities = [
-    "Creative Rooms (Art & Music Studios)",
-    "Cold Ice Tub & Recovery Zone", 
-    "Cinema Lounge with Premium Sound",
-    "Full-Service Spa & Wellness Center",
-    "Multi-Sports Court",
-    "Pet Zones & Walking Areas",
-    "Smart Home Integration",
-    "Rooftop Garden & BBQ Area"
+    "Indoor/Outdoor Games + Multi-Sports Court",
+    "Private Cinema Room + Billiards Lounge", 
+    "Cold Tub for Athletes",
+    "Music Room, Art Studio, Kids' Club",
+    "Pet-Friendly Living Areas",
+    "Smart Parking + EV Charging",
+    "Wellness Club with Spa & Ice Recovery Tub"
   ];
 
   return (
