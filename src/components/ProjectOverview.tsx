@@ -41,7 +41,7 @@ const ProjectOverview = () => {
           </div>
 
           <Button variant="luxury" size="lg" className="px-8">
-            Explore Unit Types & Features
+            CTA
           </Button>
         </div>
       </div>
