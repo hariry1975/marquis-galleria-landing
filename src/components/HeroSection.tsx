@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Building, Calendar } from "lucide-react";
-import heroBuilding from "@/assets/hero-building.jpg";
+import heroBuilding from "@/assets/hero-marquis-one.jpg";
 const HeroSection = () => {
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
