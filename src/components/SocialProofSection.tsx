@@ -116,29 +116,6 @@ const SocialProofSection = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center bg-gradient-luxury p-8 rounded-lg text-white">
-          <h3 className="font-playfair text-2xl font-bold mb-4">Ready to Join Our Investment Community?</h3>
-          <p className="mb-6 text-white/90">
-            🔥 <strong>Only a few units left</strong> at pre-launch prices. Don't miss your chance to save AED 37,500 - AED 75,000 in commission fees.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-white text-gold hover:bg-white/90 px-8"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Register Your Interest
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-white text-white hover:bg-white hover:text-gold px-8"
-            >
-              Download Brochure
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );
