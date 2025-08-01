@@ -4,13 +4,64 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageCircle, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const ContactSection = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleWhatsApp = () => {
     const phoneNumber = "971561700817";
     const message = encodeURIComponent(`Hi! I'm interested in Marquis One apartments. Please share floor plans and pricing information.`);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      email: formData.get('email'),
+      unitPreference: formData.get('unitPreference'),
+    };
+
+    try {
+      // Submit to FormSubmit.co
+      const response = await fetch('https://formsubmit.co/ehab@bgatere.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          _captcha: 'false',
+          _template: 'table',
+          _subject: 'New Lead - Marquis One Landing Page',
+        }),
+      });
+
+      toast({
+        title: "✅ Details Sent Successfully!",
+        description: `Thank you ${data.name}! Your inquiry has been submitted. Our team will contact you within 24 hours with pricing and floor plans.`,
+        duration: 5000,
+      });
+
+      // Reset form
+      e.currentTarget.reset();
+    } catch (error) {
+      toast({
+        title: "⚠️ Submission Error",
+        description: "There was an issue submitting your details. Please try again or contact us directly via WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -72,15 +123,9 @@ const ContactSection = () => {
     <h3 className="font-playfair text-2xl font-bold mb-6 text-center">Send Me Prices & Floorplans</h3>
     
     <form
-      action="https://formsubmit.co/ehab@bgatere.com"
-      method="POST"
+      onSubmit={handleSubmit}
       className="space-y-6"
     >
-      {/* Hidden Fields for Email Handling */}
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_subject" value="New Lead - Marquis One Landing Page" />
-      <input type="hidden" name="_next" value="https://marquis-one.lovable.app?submitted=true" />
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
@@ -136,10 +181,11 @@ const ContactSection = () => {
       <div>
         <Button 
           type="submit"
-          className="w-full bg-gradient-luxury text-white hover:bg-gold"
+          disabled={isSubmitting}
+          className="w-full bg-gradient-luxury text-white hover:bg-gold disabled:opacity-50"
         >
           <Send className="w-4 h-4 mr-2" />
-          Send Me Prices & Floorplans
+          {isSubmitting ? "Sending..." : "Send Me Prices & Floorplans"}
         </Button>
 
         <div className="mt-6 text-center space-y-2">
