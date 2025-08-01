@@ -66,8 +66,8 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-8rem)]">
           {/* Left Content */}
           <div className="text-center">
-            <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-4 leading-tight">
-              Own the Last Landmark Plot in <span className="bg-gradient-luxury bg-clip-text text-transparent">Arjan</span>
+            <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-4 leading-tight text-center">
+              Own the Last Landmark<br />Plot in <span className="bg-gradient-luxury bg-clip-text text-transparent">Arjan</span>
             </h1>
             
             <p className="text-xl md:text-2xl mb-4 text-white/90">
