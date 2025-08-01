@@ -20,7 +20,7 @@ const WhyArjanSection = () => {
   ];
 
   return (
-    <section id="location" className="py-20 bg-background">
+    <section id="location" className="pt-20 pb-10 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 border-gold text-gold">
