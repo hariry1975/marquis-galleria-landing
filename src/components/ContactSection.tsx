@@ -1,84 +1,14 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
-import { toast } from "sonner";
+import { Phone, MessageCircle, Send } from "lucide-react";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "", 
-    unitPreference: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      // Send via WhatsApp
-      const whatsappMessage = encodeURIComponent(`New Property Inquiry - Marquis One
-
-Name: ${formData.name}
-Phone: ${formData.phone}
-Email: ${formData.email}
-Unit Preference: ${formData.unitPreference}
-Message: ${formData.message || "No additional message"}
-
-Please send floor plans and pricing information.`);
-      
-      const phoneNumber = "971561700817";
-      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-      window.open(whatsappUrl, '_blank');
-
-      // Also send via email mailto
-      const emailSubject = encodeURIComponent("Property Inquiry - Marquis One");
-      const emailBody = encodeURIComponent(`Name: ${formData.name}
-Phone: ${formData.phone}
-Email: ${formData.email}
-Unit Preference: ${formData.unitPreference}
-Message: ${formData.message || "No additional message"}
-
-Please send floor plans and pricing information.`);
-      
-      const mailtoUrl = `mailto:ehab@bgatere.com?subject=${emailSubject}&body=${emailBody}`;
-      window.open(mailtoUrl, '_blank');
-
-      toast.success("Contact details opened in WhatsApp and email! We'll contact you within 24 hours.");
-
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        unitPreference: "",
-        message: ""
-      });
-    } catch (error) {
-      toast.error("Please try again or contact us directly via WhatsApp.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(`Hi! I'm interested in Marquis One apartments. Here are my details:
-Name: ${formData.name}
-Phone: ${formData.phone}
-Email: ${formData.email}
-Unit Preference: ${formData.unitPreference}
-Message: ${formData.message}
-
-Please share floor plans and pricing information.`);
-    
     const phoneNumber = "971561700817";
+    const message = encodeURIComponent(`Hi! I'm interested in Marquis One apartments. Please share floor plans and pricing information.`);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -150,7 +80,7 @@ Please share floor plans and pricing information.`);
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_subject" value="New Lead - Marquis One Landing Page" />
-      <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
+      <input type="hidden" name="_next" value="https://marquis-one.lovable.app?submitted=true" />
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
