@@ -47,7 +47,7 @@ const Footer = () => {
         <Separator className="bg-luxury-pearl/20 mb-8" />
 
         <div className="text-center text-luxury-pearl/60">
-          <p>© 2025 Marquis One. All rights reserved. Developed by Marquis Development.</p>
+          <p>© 2025 Bright Gate Properties. All rights reserved.</p>
         </div>
       </div>
     </footer>;
