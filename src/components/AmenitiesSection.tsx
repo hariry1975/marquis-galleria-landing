@@ -17,25 +17,36 @@ const AmenitiesSection = () => {
     { icon: Waves, title: "Swimming Pool", description: "Temperature-controlled pool with leisure deck" },
     { icon: Dumbbell, title: "Gymnasium", description: "State-of-the-art fitness facilities" },
     { icon: Baby, title: "Kids Play Area", description: "Safe and supervised play zone for children" },
-    { icon: Car, title: "Parking Facility", description: "Covered parking spaces for residents" },
-    { icon: Trees, title: "Parks & Leisure", description: "Lush landscaping and recreation areas" },
-    { icon: Utensils, title: "Dining Outlets", description: "Premium dining experiences" },
+    { icon: Car, title: "Smart Parking", description: "EV charging stations and covered parking" },
+    { icon: Trees, title: "Sky Lounge", description: "First in Arjan - Rooftop entertainment area" },
+    { icon: Utensils, title: "Business Centre", description: "Co-working spaces and meeting rooms" },
     { icon: ShoppingBag, title: "Retail Outlets", description: "Convenient shopping within the complex" },
-    { icon: Sparkles, title: "Rooftop Barbecue", description: "Exclusive rooftop entertainment area" },
+    { icon: Sparkles, title: "24/7 Concierge", description: "Premium lifestyle management services" },
+  ];
+
+  const creativeAmenities = [
+    "Creative Rooms (Art & Music Studios)",
+    "Cold Ice Tub & Recovery Zone", 
+    "Cinema Lounge with Premium Sound",
+    "Full-Service Spa & Wellness Center",
+    "Multi-Sports Court",
+    "Pet Zones & Walking Areas",
+    "Smart Home Integration",
+    "Rooftop Garden & BBQ Area"
   ];
 
   return (
     <section id="amenities" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4">
-            Premium Amenities
+          <Badge variant="outline" className="mb-4 border-gold text-gold">
+            Luxury Amenities
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            World-Class <span className="text-primary">Amenities</span>
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-gold">25+</span> World-Class Amenities
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Over 25 luxury amenities spanning 20,000 sq. ft. designed for the ultimate lifestyle experience
+            From Sky Lounge (first in Arjan) to smart home features, experience luxury living redefined across 20,000 sq. ft. of premium amenities.
           </p>
         </div>
 
@@ -48,21 +59,30 @@ const AmenitiesSection = () => {
             />
           </div>
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold">Gallery of Amenities</h3>
+            <h3 className="font-playfair text-3xl font-bold">Smart Luxury Development</h3>
             <p className="text-muted-foreground leading-relaxed">
-              The design ethos revolves around the concept of a "gallery of amenities," where every detail 
-              contributes to a harmonious living experience. From the majestic double-height designer lobby 
-              to private terraces with plunge pools, the development seamlessly blends modern aesthetics 
-              with functional spaces.
+              Marquis One introduces the first Sky Lounge in Arjan, featuring panoramic views and premium entertainment facilities. 
+              Every detail is designed for modern luxury living, from smart home integration to wellness-focused amenities.
             </p>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-card p-4 rounded-lg">
-                <h4 className="font-semibold text-primary">Home Theatre</h4>
-                <p className="text-sm text-muted-foreground">Cinematic entertainment</p>
-              </div>
-              <div className="bg-gradient-card p-4 rounded-lg">
-                <h4 className="font-semibold text-primary">Steam & Sauna</h4>
-                <p className="text-sm text-muted-foreground">Wellness facilities</p>
+            <div className="grid grid-cols-1 gap-4">
+              {creativeAmenities.map((amenity, index) => (
+                <div key={index} className="flex items-center">
+                  <div className="w-2 h-2 bg-gold rounded-full mr-3"></div>
+                  <span className="text-sm font-medium">{amenity}</span>
+                </div>
+              ))}
+            </div>
+            <div className="bg-gradient-card p-6 rounded-lg border border-gold/20">
+              <h4 className="font-semibold text-gold mb-3">Premium Features</h4>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm font-medium">Grand Lobby</p>
+                  <p className="text-xs text-muted-foreground">Double-height designer entrance</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium">Smart Homes</p>
+                  <p className="text-xs text-muted-foreground">IoT enabled apartments</p>
+                </div>
               </div>
             </div>
           </div>

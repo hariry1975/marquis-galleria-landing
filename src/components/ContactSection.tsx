@@ -1,88 +1,169 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Phone, MessageCircle, Mail, Send } from "lucide-react";
-import interiorLuxury from "@/assets/interior-luxury.jpg";
+import { Card, CardContent } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
+import { toast } from "sonner";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "", 
+    unitPreference: "",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success("Thank you! We'll contact you within 24 hours with floor plans and pricing.");
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      unitPreference: "",
+      message: ""
+    });
+  };
+
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent(`Hi! I'm interested in Marquis One apartments. Here are my details:
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email}
+Unit Preference: ${formData.unitPreference}
+Message: ${formData.message}
+
+Please share floor plans and pricing information.`);
+    
+    const phoneNumber = "971561700817";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section id="contact" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="outline" className="mb-4 border-gold text-gold">
             Get In Touch
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Contact Our <span className="text-primary">Experts</span>
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">
+            Register for <span className="text-gold">Floor Plans & Prices</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to make Marquis Galleria your home? Our expert team is here to assist you
+            Get exclusive access to floor plans, pricing, and payment options. Our team will contact you within 24 hours.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <img 
-              src={interiorLuxury} 
-              alt="Luxury Interior" 
-              className="rounded-lg shadow-luxury w-full h-[500px] object-cover"
-            />
-          </div>
-
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <Card className="shadow-soft">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <Phone className="w-6 h-6 text-primary mr-3" />
-                    <div>
-                      <h3 className="font-semibold">Call Us</h3>
-                      <p className="text-muted-foreground">Speak directly with our sales team</p>
-                    </div>
+          <div className="space-y-6">
+            <Card className="shadow-soft">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Phone className="w-6 h-6 text-gold mr-3" />
+                  <div>
+                    <h3 className="font-semibold">Call Now</h3>
+                    <p className="text-muted-foreground">Speak with our property consultants</p>
                   </div>
-                  <Button variant="luxury" className="w-full">
-                    <Phone className="w-4 h-4 mr-2" />
-                    +971 55 162 3236
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="shadow-soft">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <MessageCircle className="w-6 h-6 text-primary mr-3" />
-                    <div>
-                      <h3 className="font-semibold">WhatsApp</h3>
-                      <p className="text-muted-foreground">Quick and convenient messaging</p>
-                    </div>
-                  </div>
-                  <Button variant="hero" className="w-full">
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    Chat on WhatsApp
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
+                </div>
+                <Button className="w-full bg-gradient-luxury text-white hover:bg-gold">
+                  <Phone className="w-4 h-4 mr-2" />
+                  +971 56 170 0817
+                </Button>
+              </CardContent>
+            </Card>
 
             <Card className="shadow-soft">
               <CardContent className="p-6">
-                <h3 className="font-semibold mb-4 flex items-center">
-                  <Mail className="w-5 h-5 mr-2 text-primary" />
-                  Send us a message
-                </h3>
-                <form className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <Input placeholder="Your Name" />
-                    <Input placeholder="Email Address" type="email" />
+                <div className="flex items-center mb-4">
+                  <MessageCircle className="w-6 h-6 text-green-500 mr-3" />
+                  <div>
+                    <h3 className="font-semibold">WhatsApp Direct</h3>
+                    <p className="text-muted-foreground">Instant response guaranteed</p>
                   </div>
-                  <Input placeholder="Phone Number" type="tel" />
-                  <Textarea placeholder="Your Message" rows={4} />
-                  <Button variant="premium" className="w-full">
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
-                  </Button>
+                </div>
+                <Button 
+                  className="w-full bg-green-500 hover:bg-green-600 text-white"
+                  onClick={handleWhatsApp}
+                >
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  Chat on WhatsApp
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div>
+            <Card className="shadow-luxury border-gold/20">
+              <CardContent className="p-8">
+                <h3 className="font-playfair text-2xl font-bold mb-6 text-center">Send Me Prices & Floor Plans</h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="name" className="text-sm font-medium">Full Name *</Label>
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        placeholder="Enter your full name"
+                        required
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="phone" className="text-sm font-medium">Phone Number *</Label>
+                      <Input
+                        id="phone"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        placeholder="+971 XX XXX XXXX"
+                        required
+                        className="mt-1"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      placeholder="your.email@example.com"
+                      required
+                      className="mt-1"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="unit" className="text-sm font-medium">Unit Preference</Label>
+                    <Select value={formData.unitPreference} onValueChange={(value) => setFormData({...formData, unitPreference: value})}>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="Select preferred unit type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="studio">Studio (AED 750,000)</SelectItem>
+                        <SelectItem value="1bhk">1BHK (AED 950,000)</SelectItem>
+                        <SelectItem value="2bhk">2BHK (AED 1,500,000)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  
+                  <div>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-gradient-luxury text-white hover:bg-gold"
+                    >
+                      <Send className="w-4 h-4 mr-2" />
+                      Send Me Floor Plans
+                    </Button>
+                  </div>
                 </form>
               </CardContent>
             </Card>
