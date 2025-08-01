@@ -65,7 +65,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 text-white">
         <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-8rem)]">
           {/* Left Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center">
             <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-4 leading-tight">
               Own the Last Landmark Plot in <span className="bg-gradient-luxury bg-clip-text text-transparent">Arjan</span>
             </h1>
@@ -74,7 +74,7 @@ const HeroSection = () => {
               <strong>Zero Commission!</strong> Luxury living meets prime investment. Final pre-launch units at Marquis One – Q4 2028 handover, unbeatable lifestyle amenities, and no agent fees.
             </p>
             
-            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 mb-6 text-white/80">
+            <div className="flex flex-wrap justify-center items-center gap-6 mb-6 text-white/80">
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 mr-2 text-gold" />
                 Arjan, Dubai | Plot P-22
@@ -90,7 +90,7 @@ const HeroSection = () => {
             </div>
             
             {/* Countdown Timer */}
-            <div className="bg-white/10 backdrop-blur-sm border border-gold/30 rounded-lg p-6 mb-6 max-w-md mx-auto lg:mx-0">
+            <div className="bg-white/10 backdrop-blur-sm border border-gold/30 rounded-lg p-6 mb-6 max-w-md mx-auto">
               <div className="flex items-center justify-center mb-3">
                 <Clock className="w-5 h-5 mr-2 text-gold" />
                 <span className="text-sm font-semibold">Pre-Launch Offer Ends In:</span>
@@ -121,7 +121,7 @@ const HeroSection = () => {
               <p className="text-sm text-white/60 mt-1">*Zero commission saves you AED 37,500</p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
                 behavior: 'smooth'
               })} className="bg-gradient-luxury text-white hover:bg-gold px-8 py-6 font-semibold shadow-glow text-base">
