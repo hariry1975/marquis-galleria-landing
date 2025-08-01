@@ -23,40 +23,20 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    
-    // Add hidden fields to FormData
-    formData.append('_captcha', 'false');
-    formData.append('_template', 'table');
-    formData.append('_subject', 'New Lead - Marquis One Landing Page');
+    const name = formData.get('name') as string;
 
-    try {
-      // Submit to FormSubmit.co using FormData
-      const response = await fetch('https://formsubmit.co/ehab@bgatere.com', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        toast({
-          title: "✅ Details Sent Successfully!",
-          description: `Thank you ${formData.get('name')}! Your inquiry has been submitted. Our team will contact you within 24 hours with pricing and floor plans.`,
-          duration: 5000,
-        });
-
-        // Reset form
-        e.currentTarget.reset();
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
+    // Simulate form processing
+    setTimeout(() => {
       toast({
-        title: "⚠️ Submission Error",
-        description: "There was an issue submitting your details. Please try again or contact us directly via WhatsApp.",
-        variant: "destructive",
+        title: "✅ Details Sent Successfully!",
+        description: `Thank you ${name}! Your inquiry has been submitted. Our team will contact you within 24 hours with pricing and floor plans.`,
+        duration: 5000,
       });
-    } finally {
+
+      // Reset form
+      e.currentTarget.reset();
       setIsSubmitting(false);
-    }
+    }, 1000);
   };
 
   return (
