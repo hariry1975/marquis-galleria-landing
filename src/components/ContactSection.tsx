@@ -18,7 +18,7 @@ const ContactSection = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     const emailBody = `New Property Inquiry - Marquis One
@@ -31,10 +31,17 @@ Message: ${formData.message}
 
 Please send floor plans and pricing information.`;
 
-    const mailtoLink = `mailto:ehab@bgatere.com?subject=Property Inquiry - Marquis One&body=${encodeURIComponent(emailBody)}`;
-    window.location.href = mailtoLink;
+    // Copy to clipboard
+    try {
+      await navigator.clipboard.writeText(`To: ehab@bgatere.com
+Subject: Property Inquiry - Marquis One
+
+${emailBody}`);
+      toast.success("Details copied to clipboard! Please email ehab@bgatere.com or use WhatsApp below.");
+    } catch (err) {
+      toast.success("Please contact ehab@bgatere.com with your details or use WhatsApp below.");
+    }
     
-    toast.success("Thank you! We'll contact you within 24 hours with floor plans and pricing.");
     setFormData({
       name: "",
       phone: "",
