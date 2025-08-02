@@ -50,44 +50,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <Card className="shadow-soft">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <Phone className="w-6 h-6 text-gold mr-3" />
-                  <div>
-                    <h3 className="font-semibold">Call Now</h3>
-                    <p className="text-muted-foreground">Speak with our property consultants</p>
-                  </div>
-                </div>
-                <Button className="w-full bg-gradient-luxury text-white hover:bg-gold">
-                  <Phone className="w-4 h-4 mr-2" />
-                  +971 56 170 0817
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-soft">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <MessageCircle className="w-6 h-6 text-green-500 mr-3" />
-                  <div>
-                    <h3 className="font-semibold">WhatsApp Direct</h3>
-                    <p className="text-muted-foreground">Instant response guaranteed</p>
-                  </div>
-                </div>
-                <Button 
-                  className="w-full bg-green-500 hover:bg-green-600 text-white"
-                  onClick={handleWhatsApp}
-                >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Chat on WhatsApp
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-
+        <div className="max-w-2xl mx-auto">
           <div>
            <Card className="shadow-luxury border-gold/20">
   <CardContent className="p-8">
