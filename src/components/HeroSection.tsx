@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Building, Calendar, Clock, Trophy, Shield, Send } from "lucide-react";
 import heroBuilding from "@/assets/hero-marquis-one.jpg";
 import { useState, useEffect } from "react";
-
 const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 15,
@@ -14,7 +13,6 @@ const HeroSection = () => {
     minutes: 45,
     seconds: 30
   });
-
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
@@ -48,16 +46,13 @@ const HeroSection = () => {
         return prev;
       });
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
       {/* Background Image */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-        backgroundImage: `url(${heroBuilding})`
-      }}>
+      backgroundImage: `url(${heroBuilding})`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/80 to-navy/90"></div>
       </div>
       
@@ -117,14 +112,14 @@ const HeroSection = () => {
             
             <div className="mb-6">
               <p className="text-sm text-white/70 mb-2">Starting From</p>
-              <p className="text-4xl md:text-5xl font-bold font-playfair text-gold">AED 750,000</p>
+              <p className="text-4xl md:text-5xl font-bold font-playfair text-gold">AED 700,000</p>
               <p className="text-sm text-white/60 mt-1">*Zero commission saves you AED 37,500</p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
-                behavior: 'smooth'
-              })} className="bg-gradient-luxury text-white hover:bg-gold px-8 py-6 font-semibold shadow-glow text-base">
+              behavior: 'smooth'
+            })} className="bg-gradient-luxury text-white hover:bg-gold px-8 py-6 font-semibold shadow-glow text-base">
                 Register Now to Get Prices & Floor Plans
               </Button>
             </div>
@@ -144,8 +139,6 @@ const HeroSection = () => {
           <div className="w-1 h-3 bg-gold/50 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
