@@ -12,7 +12,7 @@ const ThankYou = () => {
     // Track Google Ads conversion
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'conversion', {
-        'send_to': 'AW-931481903/CTdJCN-ByP0aEK-SlbwD',
+        'send_to': 'AW-931481903/Rh1FCJ_1iIobEK-SlbwD',
         'value': 1.0,
         'currency': 'AED'
       });
