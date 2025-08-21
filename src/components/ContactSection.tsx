@@ -6,10 +6,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const handleWhatsApp = () => {
     const phoneNumber = "971561700817";
@@ -19,20 +21,38 @@ const ContactSection = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setIsSubmitting(true);
-    
-    // For FormSubmit, we need to allow the default form submission
-    // The form will be submitted to FormSubmit.co automatically
-    
-    // Show a quick toast before submission
-    toast({
-      title: "📧 Submitting...",
-      description: "Sending your inquiry now...",
-      duration: 2000,
-    });
-    
-    // Allow the form to submit naturally to FormSubmit
-    // Don't prevent default - let it submit to the action URL
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      
+      // Submit to FormSubmit.co
+      const response = await fetch("https://formsubmit.co/ehab@bgatere.com", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        toast({
+          title: "✅ Success!",
+          description: "Your inquiry has been sent successfully!",
+          duration: 3000,
+        });
+        
+        // Navigate to thank you page
+        navigate("/thank-you");
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "❌ Error",
+        description: "Something went wrong. Please try again or contact us directly via WhatsApp.",
+        duration: 5000,
+      });
+      setIsSubmitting(false);
+    }
   };
 
   return (
