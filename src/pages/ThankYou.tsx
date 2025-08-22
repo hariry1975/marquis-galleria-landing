@@ -9,10 +9,18 @@ const ThankYou = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Track Google Ads conversion
+    // Track Google Ads conversions
     if (typeof window !== 'undefined' && window.gtag) {
+      // Lead form conversion
       window.gtag('event', 'conversion', {
         'send_to': 'AW-931481903/Rh1FCJ_1iIobEK-SlbwD',
+        'value': 1.0,
+        'currency': 'AED'
+      });
+
+      // Page view conversion
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-931481903/CTdJCN-ByP0aEK-SlbwD',
         'value': 1.0,
         'currency': 'AED'
       });
