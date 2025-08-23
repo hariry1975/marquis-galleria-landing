@@ -1,10 +1,14 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import SocialProofBar from "@/components/SocialProofBar";
+import InteractiveSection from "@/components/InteractiveSection";
 import GallerySection from "@/components/GallerySection";
 import ProjectOverview from "@/components/ProjectOverview";
+import WhyBuyNowSection from "@/components/WhyBuyNowSection";
 import WhyArjanSection from "@/components/WhyArjanSection";
 import UnitTypesSection from "@/components/UnitTypesSection";
 import AmenitiesSection from "@/components/AmenitiesSection";
+import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import StickyCtaBar from "@/components/StickyCtaBar";
@@ -17,11 +21,15 @@ const Index = () => {
       <StickyCtaBar />
       <Header />
       <HeroSection />
+      <SocialProofBar />
+      <InteractiveSection />
+      <WhyBuyNowSection />
       <GallerySection />
       <ProjectOverview />
       <WhyArjanSection />
       <UnitTypesSection />
       <AmenitiesSection />
+      <FAQSection />
       <ContactSection />
       <Footer />
       <WhatsAppButton />
