@@ -69,18 +69,26 @@ const HeroSection = () => {
               <strong>Zero Commission!</strong> Luxury living meets prime investment. Final pre-launch units at Marquis One – Q4 2028 handover, unbeatable lifestyle amenities, and no agent fees.
             </p>
             
-            <div className="flex flex-wrap justify-center items-center gap-6 mb-6 text-white/80">
-              <div className="flex items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6 max-w-4xl mx-auto">
+              <div className="flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-gold/20">
                 <MapPin className="w-5 h-5 mr-2 text-gold" />
-                Arjan, Dubai | Plot P-22
+                <span className="text-sm font-medium">Arjan, Dubai</span>
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-gold/20">
                 <Building className="w-5 h-5 mr-2 text-gold" />
-                Studio,1 & 2 Bedroom Apartments
+                <span className="text-sm font-medium">Studio, 1 & 2BR</span>
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-gold/20">
                 <Calendar className="w-5 h-5 mr-2 text-gold" />
-                Q4 2028 Handover
+                <span className="text-sm font-medium">Q4 2028 Handover</span>
+              </div>
+              <div className="flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-gold/20">
+                <Trophy className="w-5 h-5 mr-2 text-gold" />
+                <span className="text-sm font-medium">5 Years Payment</span>
+              </div>
+              <div className="flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-gold/20">
+                <Shield className="w-5 h-5 mr-2 text-gold" />
+                <span className="text-sm font-medium">Fully Furnished</span>
               </div>
             </div>
             
