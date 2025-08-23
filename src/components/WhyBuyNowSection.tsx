@@ -121,7 +121,7 @@ const WhyBuyNowSection = () => {
         <div className="mt-12 text-center bg-gradient-luxury rounded-lg p-8">
           <div className="text-white">
             <Award className="w-12 h-12 mx-auto mb-4 opacity-80" />
-            <h3 className="text-2xl font-bold mb-2">Developer Direct Advantage</h3>
+            <h3 className="text-2xl font-bold mb-2">Our Direct Advantage</h3>
             <p className="text-lg opacity-90 mb-4">
               As the exclusive sales partner, we offer guaranteed best prices and insider access to premium units.
             </p>

@@ -22,12 +22,10 @@ const Index = () => {
       <Header />
       <HeroSection />
       <SocialProofBar />
-      <InteractiveSection />
       <WhyBuyNowSection />
       <GallerySection />
       <ProjectOverview />
       <WhyArjanSection />
-      <UnitTypesSection />
       <AmenitiesSection />
       <FAQSection />
       <ContactSection />
