@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return <footer className="bg-luxury-gray text-luxury-pearl py-12">
       <div className="container mx-auto px-4">
@@ -21,7 +22,7 @@ const Footer = () => {
               <li><a href="#amenities" className="hover:text-primary transition-colors">Amenities</a></li>
               <li><a href="#floor-plans" className="hover:text-primary transition-colors">Property Type</a></li>
               <li><a href="#location" className="hover:text-primary transition-colors">Location</a></li>
-              <li><a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 
